@@ -45,10 +45,42 @@ def uniten():
        while student not in yesChoice and student not in noChoice:
            print("Incorrect value, please re-enter")
            student = input("Are you a UNITEN student? (Type Yes or No)\n")
-       
+       if student in yesChoice:
+           student_id = input("Enter your student ID:\n")
+           
+       else:
+           phone = input("Enter your Number phone:\n")
+           while phone.isnumeric() == False:
+               print("Wrong value")
+               phone = input("Enter your Number phone:\n")
 
-  
+def day():
+    days = input("What day would you like to book the court?\n")
+    daysChoice = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    daysChoice_lower = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
+    while days not in daysChoice and days not in daysChoice_lower:
+        print("Invalid days")
+        days = input("What day would you like to book the court?\n")
 
+def hours():
+
+    while(True):
+        try:
+            hoursChoice = int(input("Please Enter your hours to play:\n"))
+            break
+        except:
+            print("Incorrect, please enter correct value")
+    while True:
+        try:
+            while hoursChoice > 5:
+                hoursChoice = int(input("Hours exceed limit.\nPlease Enter your hours to play:\n"))
+            break
+        except:
+            print("Incorrect, please enter correct value")
+            
+uniten()
+day()
+hours()
 startup()
 input("Press ENTER to escape")
            
