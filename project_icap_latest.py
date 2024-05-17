@@ -11,6 +11,8 @@ def validation():
     #Loop repeats until condition is false
     while (True):
         try:
+            global court
+            global selectCourt
             court = input("Please enter appropriate number for the corresponding station: ")
             selectCourt = int(court)
             break
@@ -24,9 +26,12 @@ def validation():
             break
         except:
             print("Incorrect, please enter correct value")
+def stations():
     #Stations
     if selectCourt == 1:
         print("You have chosen Futsal")
+        global student_weekday = 50*hoursChoice
+        global public_weekday = 60*hoursChoice
     elif selectCourt == 2:
         print("You have chosen Takraw")
     elif selectCourt == 3:
@@ -39,6 +44,9 @@ def validation():
     
     
 def uniten():
+       global student
+       global yesChoice
+       global noChoice
        student = input("Are you a UNITEN student? (Type Yes or No)\n")
        yesChoice = ["Yes","yes","Y","y"]
        noChoice = ["No","no","N","n"]
@@ -55,6 +63,7 @@ def uniten():
                phone = input("Enter your Number phone:\n")
 
 def day():
+    global days
     days = input("What day would you like to book the court?\n")
     daysChoice = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     daysChoice_lower = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
@@ -66,6 +75,7 @@ def hours():
 
     while(True):
         try:
+            global hoursChoice
             hoursChoice = int(input("Please Enter your hours to play:\n"))
             break
         except:
@@ -77,6 +87,10 @@ def hours():
             break
         except:
             print("Incorrect, please enter correct value")
+def calculate_price():
+    if student in yesChoice:
+        print(student_weekday)
+    
 startup()            
 uniten()
 day()
